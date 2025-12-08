@@ -203,4 +203,20 @@ section {
 .back-to-top:hover {
   background-color: #1d4ed8 !important;
 }
+/* TASK 2 – SITE-WIDE LINKS */
+
+a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+a:active {
+  color: #0f172a;
+}
 
