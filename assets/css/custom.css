@@ -152,7 +152,14 @@ section {
   border-radius: 50%;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
-
 .back-to-top:hover {
   background-color: #cc6300 !important;
 }
+#header {
+  background-color: red !important;
+}
+
+.back-to-top {
+  background-color: blue !important;
+}
+
