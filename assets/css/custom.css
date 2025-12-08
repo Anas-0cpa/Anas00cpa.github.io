@@ -45,3 +45,53 @@ p {
   letter-spacing: 0.4px;
   color: #555;
 }
+
+/* =========================
+   TASK 2: LINKS & BUTTONS
+   ========================= */
+
+/* Normal link style */
+a {
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+/* Link hover */
+a:hover {
+  color: #004080;
+  text-decoration: underline;
+}
+
+/* Link active (when clicked) */
+a:active {
+  color: #001f4d;
+}
+
+/* Base button style */
+.btn {
+  border-radius: 30px;
+  padding: 10px 22px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+/* Primary button normal */
+.btn-primary {
+  background-color: #ff7b00;
+  border-color: #ff7b00;
+  color: white;
+}
+
+/* Primary button hover */
+.btn-primary:hover {
+  background-color: #cc6300;
+  border-color: #cc6300;
+}
+
+/* Primary button active (clicked) */
+.btn-primary:active {
+  background-color: #994b00;
+  border-color: #994b00;
+}
