@@ -155,13 +155,7 @@ section {
 .back-to-top:hover {
   background-color: #cc6300 !important;
 }
-#header {
-  background-color: rgb(10, 8, 28) !important;
-}
 
-.back-to-top {
-  background-color: blue !important;
-}
 /* Change active menu text color */
 #navmenu .active {
   color: #00ffcc !important;   /* Change this to any color you like */
@@ -177,3 +171,36 @@ section {
 #navmenu ul li a {
   background: #1e293b !important;
 }
+/* =========================
+   FINAL FIX: DARK BLUE SIDEBAR
+   ========================= */
+
+#header {
+  background-color: #0f172a !important; /* Dark blue */
+}
+
+#navmenu {
+  background-color: #0f172a !important;
+}
+
+/* Menu icon buttons */
+#navmenu ul li a {
+  background-color: #1e293b !important;
+  color: #ffffff !important;
+}
+
+/* Active menu item */
+#navmenu ul li a.active {
+  background-color: #2563eb !important;
+  color: #ffffff !important;
+}
+
+/* Back to top button */
+.back-to-top {
+  background-color: #2563eb !important;
+}
+
+.back-to-top:hover {
+  background-color: #1d4ed8 !important;
+}
+
