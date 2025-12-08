@@ -38,6 +38,8 @@
 </head>
 
 <body class="index-page">
+  <div id="loader"></div>
+
 
   <header id="header" class="header d-flex flex-column justify-content-center">
 
@@ -729,6 +731,11 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script>
+  window.onload = function () {
+    document.getElementById("loader").style.display = "none";
+  };
+  </script>
 
 </body>
 
