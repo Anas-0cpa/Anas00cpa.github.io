@@ -156,7 +156,7 @@ section {
   background-color: #cc6300 !important;
 }
 #header {
-  background-color: red !important;
+  background-color: rgb(10, 8, 28) !important;
 }
 
 .back-to-top {
@@ -167,3 +167,13 @@ section {
   color: #00ffcc !important;   /* Change this to any color you like */
 }
 
+/* DARK BLUE SIDEBAR BACKGROUND */
+#header {
+  background: #0f172a !important;   /* Dark navy blue */
+}
+#navmenu {
+  background: #0f172a !important;
+}
+#navmenu ul li a {
+  background: #1e293b !important;
+}
