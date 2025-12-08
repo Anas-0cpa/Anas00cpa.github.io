@@ -95,3 +95,31 @@ a:active {
   background-color: #994b00;
   border-color: #994b00;
 }
+/* =========================
+   TASK 3: SECTION SPACING
+   ========================= */
+
+section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+/* Styling three main sections */
+#about,
+#services,
+#portfolio {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 40px;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+/* Card style for content blocks */
+.service-item,
+.stats-item,
+.portfolio-item {
+  background-color: #ffffff;
+  border-radius: 14px;
+  padding: 25px;
+  margin-bottom: 25px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
