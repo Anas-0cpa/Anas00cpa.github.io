@@ -162,4 +162,8 @@ section {
 .back-to-top {
   background-color: blue !important;
 }
+/* Change active menu text color */
+#navmenu .active {
+  color: #00ffcc !important;   /* Change this to any color you like */
+}
 
