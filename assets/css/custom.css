@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(224, 224, 44);
+  background-color: rgb(180, 180, 44);
 }
  
 /* =========================
@@ -122,4 +122,37 @@ section {
   padding: 25px;
   margin-bottom: 25px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+/* =========================
+   TASK 4: NAVBAR RESTYLE
+   ========================= */
+
+#header {
+  background-color: #111827 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+#navmenu a {
+  color: #ffffff !important;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 10px 14px;
+}
+
+#navmenu a:hover,
+#navmenu .active {
+  color: #ffb703 !important;
+}
+.back-to-top {
+  background-color: #ff7b00 !important;
+  color: white !important;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.back-to-top:hover {
+  background-color: #cc6300 !important;
 }
