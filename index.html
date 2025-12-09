@@ -742,12 +742,13 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
  <script>
-  window.onload = function () {
+  window.addEventListener("load", function () {
     const loader = document.querySelector(".page-loader");
-    if (loader) loader.style.display = "none";
-  };
+    if (loader) {
+      loader.style.display = "none";
+    }
+  });
 </script>
-
 
 </body>
 
