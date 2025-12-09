@@ -80,20 +80,20 @@ a:active {
 /* Primary button normal */
 .btn-primary {
   background-color: #ff7b00;
-  border-color: #ff7b00;
+  border-color: #cc6300;
   color: white;
 }
 
 /* Primary button hover */
 .btn-primary:hover {
   background-color: #cc6300;
-  border-color: #cc6300;
+  border-color: #994b00;
 }
 
 /* Primary button active (clicked) */
 .btn-primary:active {
   background-color: #994b00;
-  border-color: #994b00;
+  border-color: #663300;
 }
 /* =========================
    TASK 3: SECTION SPACING
