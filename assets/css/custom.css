@@ -300,7 +300,17 @@ table.custom-table {
 .custom-table tr:hover {
   background-color: #dbe9ff;
 }
-/* ========= TASK 4 – PAGE LOADER OVERLAY (FRIEND STYLE) ========= */
+/* =========================
+   GLOBAL RESET
+   ========================= */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* =========================
+   PAGE LOADER (FRIEND STYLE – FINAL)
+   ========================= */
 
 .page-loader {
   position: fixed;
@@ -309,8 +319,7 @@ table.custom-table {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 9999;
-  animation: loader-fade-out 0.6s ease 2.4s forwards;
+  z-index: 99999;
 }
 
 /* Centered loader content */
@@ -318,26 +327,27 @@ table.custom-table {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 16px;
 }
 
-/* Spinner circle */
+/* Spinner */
 .loader-spinner {
-  width: 50px;
-  height: 50px;
-  border-radius: 999px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
   border: 3px solid rgba(148, 163, 184, 0.3);
   border-top-color: #38bdf8;
-  animation: loader-spin 0.9s linear infinite;
+  animation: loader-spin 1s linear infinite;
 }
 
-/* "Loading..." text */
+/* Loading text */
 .loader-text {
-  font-size: 2rem;
-  color: #ffffff;
+  font-size: 28px;
+  font-weight: 500;
+  color: #e5e7eb;
 }
 
-/* Typewriter effect */
+/* Typing effect */
 .loader-typing {
   display: inline-block;
   white-space: nowrap;
@@ -349,7 +359,7 @@ table.custom-table {
     loader-caret 0.7s steps(1, end) infinite;
 }
 
-/* Animations */
+/* Loader Animations */
 @keyframes loader-spin {
   to { transform: rotate(360deg); }
 }
@@ -364,25 +374,10 @@ table.custom-table {
   51%, 100% { border-color: transparent; }
 }
 
-@keyframes loader-fade-out {
-  to {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-  }
-}
-/* ========== ACCESSIBILITY: REDUCED MOTION ========== */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
-  }
-}
-/* ========= TASK 4 – PAGE LOADER OVERLAY (FRIEND STYLE) ========= */
-/* (your loader code here) */
+/* =========================
+   FADE IN SECTION ANIMATION
+   ========================= */
 
-
-/* ========= ANIMATION: FADE IN SECTIONS ========= */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -398,7 +393,10 @@ table.custom-table {
   animation: fadeIn 1s ease-in-out;
 }
 
-/* ========= ANIMATION: BUTTON PULSE ON HOVER ========= */
+/* =========================
+   BUTTON PULSE HOVER EFFECT
+   ========================= */
+
 @keyframes pulse {
   0% { transform: scale(1); }
   50% { transform: scale(1.1); }
@@ -407,4 +405,15 @@ table.custom-table {
 
 .btn:hover {
   animation: pulse 0.5s;
+}
+
+/* =========================
+   ACCESSIBILITY – REDUCED MOTION
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
 }
