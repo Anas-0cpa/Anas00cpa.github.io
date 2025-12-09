@@ -751,12 +751,11 @@
   window.addEventListener("load", function () {
     const loader = document.querySelector(".page-loader");
     if (loader) {
-      setTimeout(() => {
-        loader.style.display = "none";
-      }, 2500); // ✅ stays visible for 2.5 seconds
+      loader.classList.add("hide-loader");
     }
   });
 </script>
+
 
 
 </body>
