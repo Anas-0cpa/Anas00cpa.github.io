@@ -494,10 +494,13 @@ html, body {
     animation: none !important;
   }
 }
-/* Hide loader after page load */
-.hide-loader {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.6s ease;
+.page-loader {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top, #0f172a 0, #020617 55%, #000 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
 }
+

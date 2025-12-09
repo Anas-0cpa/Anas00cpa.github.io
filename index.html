@@ -38,7 +38,7 @@
 </head>
 
 <body class="index-page">
-  <div class="page-loader">
+  <div class="page-loader" id="pageLoader">
   <div class="loader-content">
     <div class="loader-spinner"></div>
     <div class="loader-text">
@@ -748,12 +748,12 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
  <script>
-  window.addEventListener("load", function () {
-    const loader = document.querySelector(".page-loader");
+  setTimeout(function () {
+    var loader = document.getElementById("pageLoader");
     if (loader) {
-      loader.classList.add("hide-loader");
+      loader.style.display = "none";
     }
-  });
+  }, 800);
 </script>
 
 
