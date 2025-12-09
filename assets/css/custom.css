@@ -330,7 +330,7 @@ table.custom-table {
 #loader {
   width: 60px;
   height: 60px;
-  border: 6px solid #ddd;
+  border: 6px solid #383838;
   border-top: 6px solid #0f172a;
   border-radius: 50%;
   animation: spin 1s linear infinite;
@@ -345,4 +345,82 @@ table.custom-table {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+/* =========================
+   LAB 10 – FINAL CUSTOM.CSS
+   ========================= */
+
+/* ========== ANIMATION 1: FADE IN SECTIONS ========== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section {
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* ========== ANIMATION 2: BUTTON PULSE ON HOVER ========== */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.btn:hover {
+  animation: pulse 0.5s;
+}
+
+/* ========== CSS LOADER (SPINNER) ========== */
+#loader {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #cccccc;
+  border-top: 6px solid #0f172a;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  background: transparent;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ========== LOADING TEXT ANIMATION (OPTIONAL BUT GOOD) ========== */
+.loading-text {
+  margin-top: 80px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #0f172a;
+  letter-spacing: 2px;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  animation: typing 2s steps(10) infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 120px; }
+}
+
+/* ========== ACCESSIBILITY: REDUCED MOTION ========== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
 
