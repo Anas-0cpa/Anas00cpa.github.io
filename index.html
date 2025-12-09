@@ -38,10 +38,15 @@
 </head>
 
 <body class="index-page">
-  <div id="loader">
-  <div class="spinner"></div>
-  <p class="loading-text">Loading...</p>
+  <div class="page-loader">
+  <div class="loader-content">
+    <div class="loader-spinner"></div>
+    <div class="loader-text">
+      <span class="loader-typing">Loading...</span>
+    </div>
+  </div>
 </div>
+
 
 
 
@@ -735,11 +740,6 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
-  <script>
-  window.onload = function () {
-    document.getElementById("loader").style.display = "none";
-  };
-  </script>
-
+   
 </body>
 </html>
