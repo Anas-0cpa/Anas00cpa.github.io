@@ -38,7 +38,7 @@
 </head>
 
 <body class="index-page">
-  <div class="page-loader">
+  <div class="page-loader" id="pageLoader">
   <div class="loader-content">
     <div class="loader-spinner"></div>
     <div class="loader-text">
@@ -46,6 +46,7 @@
     </div>
   </div>
 </div>
+
 
 
 
@@ -740,13 +741,16 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
-  <script>
-  window.onload = function () {
-    document.querySelector(".page-loader").style.display = "none";
-  };
+ <script>
+  window.addEventListener("load", function () {
+    const loader = document.getElementById("pageLoader");
+    setTimeout(() => {
+      loader.style.display = "none";
+    }, 2500); // matches your CSS animation time
+  });
 </script>
+  
 
-   
 </body>
 
 </html>
