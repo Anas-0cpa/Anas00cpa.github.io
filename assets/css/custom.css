@@ -301,6 +301,7 @@ table.custom-table {
   background-color: #dbe9ff;
 }
 /* =========================
+  /* =========================
    GLOBAL RESET
    ========================= */
 html, body {
@@ -309,7 +310,7 @@ html, body {
 }
 
 /* =========================
-   PAGE LOADER (FRIEND STYLE – FINAL)
+   PAGE LOADER – FINAL WORKING
    ========================= */
 
 .page-loader {
@@ -322,7 +323,6 @@ html, body {
   z-index: 99999;
 }
 
-/* Centered loader content */
 .loader-content {
   display: flex;
   flex-direction: column;
@@ -330,7 +330,6 @@ html, body {
   gap: 16px;
 }
 
-/* Spinner */
 .loader-spinner {
   width: 52px;
   height: 52px;
@@ -340,14 +339,12 @@ html, body {
   animation: loader-spin 1s linear infinite;
 }
 
-/* Loading text */
 .loader-text {
   font-size: 28px;
   font-weight: 500;
   color: #e5e7eb;
 }
 
-/* Typing effect */
 .loader-typing {
   display: inline-block;
   white-space: nowrap;
@@ -359,7 +356,6 @@ html, body {
     loader-caret 0.7s steps(1, end) infinite;
 }
 
-/* Loader Animations */
 @keyframes loader-spin {
   to { transform: rotate(360deg); }
 }
@@ -375,7 +371,7 @@ html, body {
 }
 
 /* =========================
-   FADE IN SECTION ANIMATION
+   FADE IN SECTIONS
    ========================= */
 
 @keyframes fadeIn {
@@ -394,7 +390,7 @@ html, body {
 }
 
 /* =========================
-   BUTTON PULSE HOVER EFFECT
+   BUTTON PULSE
    ========================= */
 
 @keyframes pulse {
@@ -408,23 +404,9 @@ html, body {
 }
 
 /* =========================
-   ACCESSIBILITY – REDUCED MOTION
+   DECORATIVE CSS SHAPES
    ========================= */
 
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
-  }
-}
-.page-loader {
-  display: flex !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-/* ========== OPTIONAL TASK: DECORATIVE CSS SHAPES ========= */
-
-/* Container for shapes */
 .decorative-shapes {
   position: fixed;
   top: 0;
@@ -436,14 +418,12 @@ html, body {
   z-index: 1;
 }
 
-/* Common shape styles */
 .shape {
   position: absolute;
   opacity: 0.25;
   animation: floatRotate 12s infinite ease-in-out;
 }
 
-/* Circle */
 .shape.circle {
   width: 80px;
   height: 80px;
@@ -453,7 +433,6 @@ html, body {
   left: 10%;
 }
 
-/* Square */
 .shape.square {
   width: 70px;
   height: 70px;
@@ -463,7 +442,6 @@ html, body {
   animation-delay: 2s;
 }
 
-/* Triangle */
 .shape.triangle {
   width: 0;
   height: 0;
@@ -475,32 +453,19 @@ html, body {
   animation-delay: 4s;
 }
 
-/* Floating + rotating animation */
 @keyframes floatRotate {
-  0% {
-    transform: translateY(0) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-40px) rotate(180deg);
-  }
-  100% {
-    transform: translateY(0) rotate(360deg);
-  }
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-40px) rotate(180deg); }
+  100% { transform: translateY(0) rotate(360deg); }
 }
 
-/* Accessibility */
+/* =========================
+   ACCESSIBILITY
+   ========================= */
+
 @media (prefers-reduced-motion: reduce) {
-  .shape {
+  * {
     animation: none !important;
+    transition: none !important;
   }
 }
-.page-loader {
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(circle at top, #0f172a 0, #020617 55%, #000 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 99999;
-}
-
