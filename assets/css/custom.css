@@ -302,7 +302,7 @@ table.custom-table {
 }
 /* =========================
    LAB 10 – FINAL CUSTOM.CSS
-   ========================= */
+========================= */
 
 /* ========== ANIMATION 1: FADE IN SECTIONS ========== */
 @keyframes fadeIn {
@@ -331,34 +331,39 @@ table.custom-table {
   animation: pulse 0.5s;
 }
 
-/* ========== CSS LOADER (SPINNER) ========== */
+/* ========== FULLSCREEN LOADER BACKGROUND ========== */
 #loader {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #020617, #020617, #020617);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* ========== SPINNER ========== */
+.spinner {
   width: 60px;
   height: 60px;
-  border: 6px solid #cccccc;
-  border-top: 6px solid #0f172a;
+  border: 6px solid #1e293b;
+  border-top: 6px solid #38bdf8;
   border-radius: 50%;
   animation: spin 1s linear infinite;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 9999;
-  background: transparent;
 }
 
 @keyframes spin {
-  from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
 
-/* ========== LOADING TEXT ANIMATION (OPTIONAL BUT GOOD) ========== */
+/* ========== LOADING TEXT TYPE EFFECT ========== */
 .loading-text {
-  margin-top: 80px;
-  font-size: 18px;
+  margin-top: 18px;
+  font-size: 20px;
   font-weight: 600;
-  color: #0f172a;
-  letter-spacing: 2px;
+  color: white;
+  letter-spacing: 3px;
   overflow: hidden;
   white-space: nowrap;
   width: 0;
@@ -377,14 +382,3 @@ table.custom-table {
     transition: none !important;
   }
 }
-/* ===== SPINNER FIX ===== */
-.spinner {
-  width: 60px;
-  height: 60px;
-  border: 6px solid #cccccc;
-  border-top: 6px solid #0f172a;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-
