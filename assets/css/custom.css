@@ -334,7 +334,7 @@ table.custom-table {
 /* "Loading..." text */
 .loader-text {
   font-size: 2rem;
-  color: #e5e7eb;
+  color: #ffffff;
 }
 
 /* Typewriter effect */
@@ -377,4 +377,34 @@ table.custom-table {
     animation: none !important;
     transition: none !important;
   }
+}
+/* ========= TASK 4 – PAGE LOADER OVERLAY (FRIEND STYLE) ========= */
+/* (your loader code here) */
+
+
+/* ========= ANIMATION: FADE IN SECTIONS ========= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section {
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* ========= ANIMATION: BUTTON PULSE ON HOVER ========= */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.btn:hover {
+  animation: pulse 0.5s;
 }
