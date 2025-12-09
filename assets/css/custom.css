@@ -417,3 +417,80 @@ html, body {
     transition: none !important;
   }
 }
+.page-loader {
+  display: flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+/* ========== OPTIONAL TASK: DECORATIVE CSS SHAPES ========= */
+
+/* Container for shapes */
+.decorative-shapes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Common shape styles */
+.shape {
+  position: absolute;
+  opacity: 0.25;
+  animation: floatRotate 12s infinite ease-in-out;
+}
+
+/* Circle */
+.shape.circle {
+  width: 80px;
+  height: 80px;
+  background: #38bdf8;
+  border-radius: 50%;
+  top: 20%;
+  left: 10%;
+}
+
+/* Square */
+.shape.square {
+  width: 70px;
+  height: 70px;
+  background: #22c55e;
+  top: 60%;
+  left: 80%;
+  animation-delay: 2s;
+}
+
+/* Triangle */
+.shape.triangle {
+  width: 0;
+  height: 0;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-bottom: 70px solid #f97316;
+  top: 75%;
+  left: 20%;
+  animation-delay: 4s;
+}
+
+/* Floating + rotating animation */
+@keyframes floatRotate {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-40px) rotate(180deg);
+  }
+  100% {
+    transform: translateY(0) rotate(360deg);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .shape {
+    animation: none !important;
+  }
+}
