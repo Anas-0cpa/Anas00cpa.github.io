@@ -1,13 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {
-
   const form = document.querySelector(".php-email-form");
+  if (!form) return;
+
   const nameInput = form.querySelector('input[name="name"]');
   const emailInput = form.querySelector('input[name="email"]');
   const addressInput = form.querySelector('input[name="address"]');
   const phoneInput = form.querySelector('input[name="phone"]');
-  const ratingInputs = form.querySelectorAll('input[name="rating"]');
+  // your 3 rating fields are numbers (Design / Usability / Content)
+  const ratingInputs = form.querySelectorAll('input[type="number"]');
   const submitBtn = form.querySelector('button[type="submit"]');
 
+  // Start disabled
   submitBtn.disabled = true;
 
   function showError(input, message) {
@@ -36,10 +39,9 @@ document.addEventListener("DOMContentLoaded", function () {
     } else if (!regex.test(nameInput.value)) {
       showError(nameInput, "Only letters allowed");
       return false;
-    } else {
-      clearError(nameInput);
-      return true;
     }
+    clearError(nameInput);
+    return true;
   }
 
   function validateEmail() {
@@ -50,75 +52,84 @@ document.addEventListener("DOMContentLoaded", function () {
     } else if (!regex.test(emailInput.value)) {
       showError(emailInput, "Invalid email");
       return false;
-    } else {
-      clearError(emailInput);
-      return true;
     }
+    clearError(emailInput);
+    return true;
   }
 
   function validateAddress() {
     if (addressInput.value.trim().length < 5) {
-      showError(addressInput, "Enter valid address");
+      showError(addressInput, "Enter a valid address");
       return false;
-    } else {
-      clearError(addressInput);
-      return true;
     }
+    clearError(addressInput);
+    return true;
   }
 
-  // ✅ PHONE MASK (+370 6xx xxxxx)
-  phoneInput.addEventListener("input", function () {
+  // Phone mask + validation
+  function validatePhone() {
     let value = phoneInput.value.replace(/\D/g, "");
 
+    // remove 370 if user typed it
     if (value.startsWith("370")) {
       value = value.slice(3);
     }
-
     if (value.length > 8) value = value.slice(0, 8);
 
-    phoneInput.value = "+370 " + value.replace(/(\d{3})(\d{5})/, "$1 $2");
+    if (value.length > 0) {
+      phoneInput.value = "+370 " + value.replace(/(\d{3})(\d{0,5})/, "$1 $2").trim();
+    }
 
     if (value.length === 8) {
       clearError(phoneInput);
+      return true;
     } else {
-      showError(phoneInput, "Invalid Lithuanian number");
+      showError(phoneInput, "Invalid Lithuanian phone number");
+      return false;
     }
-  });
-
-  function validateRatings() {
-    let checked = false;
-    ratingInputs.forEach(r => {
-      if (r.checked) checked = true;
-    });
-    return checked;
   }
 
-  function checkFormValidity() {
-    if (
+  function validateRatings() {
+    let ok = true;
+    ratingInputs.forEach(input => {
+      const v = Number(input.value);
+      if (!v || v < 1 || v > 10) {
+        showError(input, "Enter a number 1–10");
+        ok = false;
+      } else {
+        clearError(input);
+      }
+    });
+    return ok;
+  }
+
+  // Check whole form and enable/disable button
+  function validateForm() {
+    const isValid =
       validateName() &&
       validateEmail() &&
       validateAddress() &&
-      phoneInput.value.length >= 12 &&
-      validateRatings()
-    ) {
-      submitBtn.disabled = false;
-    } else {
-      submitBtn.disabled = true;
-    }
+      validatePhone() &&
+      validateRatings();
+
+    submitBtn.disabled = !isValid;
+    return isValid;
   }
 
-  nameInput.addEventListener("input", validateName);
-  emailInput.addEventListener("input", validateEmail);
-  addressInput.addEventListener("input", validateAddress);
-  phoneInput.addEventListener("input", checkFormValidity);
-  ratingInputs.forEach(r => r.addEventListener("change", checkFormValidity));
+  // Real-time validation
+  nameInput.addEventListener("input", validateForm);
+  emailInput.addEventListener("input", validateForm);
+  addressInput.addEventListener("input", validateForm);
+  phoneInput.addEventListener("input", validateForm);
+  ratingInputs.forEach(input => input.addEventListener("input", validateForm));
 
+  // Submit handler
   form.addEventListener("submit", function (e) {
     e.preventDefault();
+    if (!validateForm()) return;
+
     alert("Form submitted successfully!");
     form.reset();
     submitBtn.disabled = true;
   });
-
 });
-
