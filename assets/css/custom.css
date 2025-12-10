@@ -469,3 +469,26 @@ html, body {
     transition: none !important;
   }
 }
+/* FULL WEBSITE BACKGROUND COLOR CHANGE */
+body {
+  background-color: #181515 !important;
+}
+/* FORCE FULL WEBSITE BACKGROUND COLOR */
+body,
+section,
+main,
+.resume,
+.about,
+.stats,
+.contact,
+.portfolio,
+.testimonials {
+  background-color: #eaf4ff !important;
+}
+
+/* If image section still stays dark */
+.section-bg,
+.bg-light,
+.bg-white {
+  background-color: #eaf4ff !important;
+}
