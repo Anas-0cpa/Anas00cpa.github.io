@@ -19,9 +19,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   submitBtn.disabled = true; // initially disabled
 
-  /* -------------------------
-        ERROR HANDLING
-  --------------------------*/
+  
+  
   function showError(input, message) {
     input.style.border = "2px solid red";
 
@@ -41,9 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  /* -------------------------
-        VALIDATION FUNCTIONS
-  --------------------------*/
+  
   function validateName() {
     const regex = /^[A-Za-z\s]+$/;
     if (!nameInput.value.trim()) return showError(nameInput, "Name required"), false;
@@ -74,9 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return true;
   }
 
-  /* -------------------------
-      PHONE MASK + VALIDATION
-  --------------------------*/
+  
   function validatePhone() {
     let val = phoneInput.value.replace(/\D/g, "");
 
@@ -96,9 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return true;
   }
 
-  /* -------------------------
-        RATING VALIDATION
-  --------------------------*/
+  
   function validateRatings() {
     const nums = [rating1, rating2, rating3];
     let ok = true;
@@ -114,9 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return ok;
   }
 
-  /* -------------------------
-       FORM VALIDATION CHECK
-  --------------------------*/
+
   function checkForm() {
     const valid =
       validateName() &&
@@ -140,9 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
   rating2.addEventListener("input", checkForm);
   rating3.addEventListener("input", checkForm);
 
-  /* -------------------------
-       SUBMIT HANDLING
-  --------------------------*/
+  
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     if (!checkForm()) return;
@@ -351,3 +340,56 @@ document.addEventListener("DOMContentLoaded", () => {
   loadBestScores();
 
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const apiKey = "https://api.open-meteo.com/v1/forecast";
+
+  const getWeatherBtn = document.getElementById("getWeather");
+  const cityInput = document.getElementById("cityInput");
+  const weatherResult = document.getElementById("weatherResult");
+
+  getWeatherBtn.addEventListener("click", async () => {
+    const city = cityInput.value.trim();
+    if (!city) {
+      alert("Please enter a city!");
+      return;
+    }
+
+    weatherResult.style.display = "none";
+    weatherResult.textContent = "Loading...";
+
+    try {
+      const geoRes = await fetch(
+        `https://geocoding-api.open-meteo.com/v1/search?name=${city}`
+      );
+      const geoData = await geoRes.json();
+
+      if (!geoData.results || geoData.results.length === 0) {
+        weatherResult.style.display = "block";
+        weatherResult.textContent = "City not found!";
+        return;
+      }
+
+      const { latitude, longitude } = geoData.results[0];
+
+      const weatherRes = await fetch(
+        `${apiKey}?latitude=${latitude}&longitude=${longitude}&current_weather=true`
+      );
+      const weatherData = await weatherRes.json();
+
+      const temp = weatherData.current_weather.temperature;
+      const wind = weatherData.current_weather.windspeed;
+
+      weatherResult.style.display = "block";
+      weatherResult.innerHTML = `
+        <strong>City:</strong> ${city}<br>
+        <strong>Temperature:</strong> ${temp}°C<br>
+        <strong>Wind Speed:</strong> ${wind} km/h<br>
+        <strong>Status:</strong> Real-time weather updated successfully!
+      `;
+    } catch (error) {
+      weatherResult.style.display = "block";
+      weatherResult.textContent = "Error fetching weather!";
+    }
+  });
+});
+

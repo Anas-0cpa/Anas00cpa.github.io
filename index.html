@@ -789,6 +789,26 @@
 
   </div>
 </section>
+<section id="weather" class="section">
+  <div class="container section-title">
+    <h2>Smart Thermometer</h2>
+    <p>Get real-time weather updates</p>
+  </div>
+
+  <div class="container">
+
+    <div class="mb-3">
+      <label>Enter City:</label>
+      <input type="text" id="cityInput" class="form-control" placeholder="E.g. Vilnius">
+    </div>
+
+    <button id="getWeather" class="btn btn-primary mb-3">Get Weather</button>
+
+    <div id="weatherResult" class="alert alert-info" style="display:none;"></div>
+
+  </div>
+</section>
+
 
 
   </main>
@@ -840,6 +860,37 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/custom.js"></script>
+  <script>
+document.getElementById("getWeather").addEventListener("click", function () {
+  let city = document.getElementById("cityInput").value.trim();
+
+  if (!city) {
+    alert("Please enter a city name!");
+    return;
+  }
+
+  const apiURL = `https://api.open-meteo.com/v1/forecast?latitude=54.6872&longitude=25.2797&current_weather=true`;
+
+  fetch(apiURL)
+    .then(response => response.json())
+    .then(data => {
+      const weatherBox = document.getElementById("weatherResult");
+      const temp = data.current_weather.temperature;
+      const wind = data.current_weather.windspeed;
+
+      weatherBox.style.display = "block";
+      weatherBox.innerHTML = `
+        <strong>City:</strong> ${city}<br>
+        <strong>Temperature:</strong> ${temp}°C<br>
+        <strong>Wind Speed:</strong> ${wind} km/h
+      `;
+    })
+    .catch(error => {
+      alert("Error fetching weather data.");
+      console.error(error);
+    });
+});
+</script>
  <script>
   setTimeout(function () {
     var loader = document.getElementById("pageLoader");
